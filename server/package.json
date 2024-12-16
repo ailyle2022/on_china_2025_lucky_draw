@@ -3,14 +3,18 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "ts-node src/index.ts"
+    "start": "ts-node src/index.ts",
+    "db:m": "npx prisma migrate dev",
+    "db:g": "npx prisma generate"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "devDependencies": {
+    "@prisma/client": "^6.0.1",
     "@types/node": "^22.10.2",
+    "prisma": "^6.0.1",
     "ts-node": "^10.9.2",
     "typescript": "^5.7.2"
   }
