@@ -63,6 +63,20 @@ app.post("/interest", async (req: Request, res: Response) => {
       return;
     }
 
+    // 判断抽奖是否开始，如已开始则无法修改
+    const winUser = await prisma.user.findFirst({
+      where: {
+        prizeId: { not: 0 },
+      },
+    });
+
+    if (winUser) {
+      res
+        .status(400)
+        .json({ success: false, message: "已经开始抽奖，无法更换心愿单" });
+      return;
+    }
+
     await prisma.interest.deleteMany({
       where: {
         userId: user.id,
