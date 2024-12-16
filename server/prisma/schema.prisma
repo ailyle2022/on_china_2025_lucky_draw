@@ -13,18 +13,28 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Prize{
-  id Int @id @default(autoincrement())
-  name String @unique
-  quantity Int @default(0)
-  level Int @default(0)
-  price Int @default(0)
+model Prize {
+  id       Int        @id @default(autoincrement())
+  name     String     @unique
+  quantity Int        @default(0)
+  level    Int        @default(0)
+  price    Int        @default(0)
+  Interest Interest[]
 }
 
-model User{
-  id Int @id @default(autoincrement())
-  email String @unique
-  cellphone String @unique
-  name String
-  token String?
+model User {
+  id        Int        @id @default(autoincrement())
+  email     String     @unique
+  cellphone String     @unique
+  name      String
+  token     String?
+  Interest  Interest[]
+}
+
+model Interest {
+  id      Int   @id @default(autoincrement())
+  userId  Int
+  prizeId Int
+  user    User  @relation(fields: [userId], references: [id])
+  prize   Prize @relation(fields: [prizeId], references: [id])
 }

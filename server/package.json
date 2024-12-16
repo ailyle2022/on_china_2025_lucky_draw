@@ -5,7 +5,9 @@
   "scripts": {
     "start": "ts-node src/index.ts",
     "db:m": "npx prisma migrate dev",
-    "db:g": "npx prisma generate"
+    "db:g": "npx prisma generate",
+    "db:f": "npx prisma format",
+    "format": "npx prettier --write 'src/**/*.{ts,js}'"
   },
   "keywords": [],
   "author": "",
