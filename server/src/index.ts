@@ -113,12 +113,25 @@ app.post("/draw", async (req: Request, res: Response) => {
       },
     });
 
+    const wishers = [];
+
     // 将用户名字加入数组
     for (const id of ids) {
+      wishers.push(id.user.name);
       userNames.push(id.user.name);
     }
 
-    res.json({ success: true, data: userNames });
+    // 从userNames随机抽取一位用户名作为中奖者
+    const winner = userNames[Math.floor(Math.random() * userNames.length)];
+
+    res.json({
+      success: true,
+      data: {
+        wishers: wishers,
+        userPool: userNames,
+        winner: winner,
+      },
+    });
   } catch (error) {
     console.error(error);
     res.status(500).json({ success: false, message: "error" });
