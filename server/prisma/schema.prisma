@@ -26,8 +26,9 @@ model User {
   id        Int        @id @default(autoincrement())
   email     String     @unique
   cellphone String     @unique
-  name      String
+  name      String     @unique
   token     String?
+  prizeId   Int        @default(0)
   Interest  Interest[]
 }
 
