@@ -24,5 +24,7 @@ model Prize{
 model User{
   id Int @id @default(autoincrement())
   email String @unique
+  cellphone String @unique
   name String
+  token String?
 }
