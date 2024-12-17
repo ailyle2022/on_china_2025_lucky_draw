@@ -1,0 +1,11 @@
+{
+    "login": {
+      "title": "登录",
+      "username": "用户名",
+      "password": "密码",
+      "button": "进入抽奖"
+    },
+    "messages": {
+      "error": "用户名或密码错误"
+    }
+  }

@@ -1,0 +1,11 @@
+{
+    "login": {
+      "title": "Login",
+      "username": "Username",
+      "password": "Password",
+      "button": "Enter Lottery"
+    },
+    "messages": {
+      "error": "Invalid username or password"
+    }
+  }
