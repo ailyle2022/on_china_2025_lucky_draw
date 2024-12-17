@@ -33,4 +33,10 @@ export default {
   text-align: center;
   color: #2c3e50;
 }
+
+.language-switcher{
+  height: 40px;
+  line-height: 40px;
+  margin-bottom: 20px;
+}
 </style>
