@@ -2,6 +2,7 @@
 import express, { Request, Response } from "express";
 import { PrismaClient } from "@prisma/client";
 import { v4 as uuidv4 } from "uuid";
+import cors from "cors";
 
 const prisma = new PrismaClient();
 const app = express();
@@ -9,6 +10,7 @@ const port = 3000;
 
 // Middleware to parse JSON bodies
 app.use(express.json());
+app.use(cors());
 
 app.get("/prizes", async (req: Request, res: Response) => {
   try {

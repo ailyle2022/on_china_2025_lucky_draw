@@ -27,16 +27,37 @@
 
 <script>
 import CardComponent from '@/components/CardComponent.vue';
+import { getRequest } from '@/services/apiService.js';
+
 
 export default {
   components: {
     CardComponent
   },
+  data() {
+    return {
+      prizes: []
+    };
+  },
   methods: {
     logout() {
       localStorage.removeItem('userToken');
       this.$router.push('/login');
+    },
+    async getPrizes() {
+      try {
+        const response = await getRequest('prizes');
+        this.prizes = response;
+        console.log('GET request successful:', response);
+        // 处理响应数据
+      } catch (error) {
+        console.error('GET request failed:', error);
+        // 处理错误
+      }
     }
+  },
+  mounted() {
+    this.getPrizes();
   }
 };
 </script>
