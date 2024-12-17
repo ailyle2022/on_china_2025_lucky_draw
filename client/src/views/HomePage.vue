@@ -2,25 +2,17 @@
   <div class="home-container">
     <div>
       <CardComponent 
-      :image="require('@/assets/1.jpg')" 
-      title="1等奖 - iPhone 16 Pro Max 256GB 原色钛金属"/>
-
-      <CardComponent 
-      :image="require('@/assets/2.jpg')" 
-      title="1等奖 - iPhone 16 Pro Max 256GB 原色钛金属"/>
-
-      <CardComponent 
-      :image="require('@/assets/3.jpg')" 
-      title="1等奖 - iPhone 16 Pro Max 256GB 原色钛金属"/>
-
-      <CardComponent 
-      :image="require('@/assets/4.jpg')" 
-      title="1等奖 - iPhone 16 Pro Max 256GB 原色钛金属"/>
-
+        v-for="(prize, index) in prizes" 
+        :key="index"
+        :image="require(`@/assets/${prize.id}.jpg`)" 
+        :name="prize.name"
+        :level="prize.level"
+        :quantity="prize.quantity"
+      />
     </div>
 
     <div style="padding-bottom: 40px; padding-top: 20px;">
-      <el-button type="info" plain @click="logout">退出登录</el-button>
+      <el-button style="width: 100px;" class="full-width-button" type="info" plain @click="logout">{{$t('login.exit')}}</el-button>
     </div>
   </div>
 </template>
@@ -70,6 +62,7 @@ export default {
   height: 100vh;
   padding: 10px;
   text-align: center;
+  margin-top: 60px;
 }
 
 .bottom {

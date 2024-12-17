@@ -6,9 +6,9 @@
         class="image"
       />
       <div style="padding: 14px">
-        <span>{{ title }}</span>
+        <span>{{ level }}等奖 - {{ name }} x {{ quantity }}</span>
         <div class="bottom">
-          <el-button class="button">我想要这个奖品</el-button>
+          <el-button class="button">{{$t('home.want_this_prize')}}</el-button>
         </div>
       </div>
     </el-card>
@@ -21,8 +21,16 @@
         type: String,
         required: true
       },
-      title: {
+      name: {
         type: String,
+        required: true
+      },
+      level: {
+        type: Number,
+        required: true
+      },
+      quantity: {
+        type: Number,
         required: true
       }
     },

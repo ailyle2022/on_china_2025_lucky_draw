@@ -34,9 +34,13 @@ export default {
   color: #2c3e50;
 }
 
-.language-switcher{
-  height: 40px;
-  line-height: 40px;
-  margin-bottom: 20px;
+.language-switcher {
+  position: fixed; /* 固定位置 */
+  top: 0;          /* 固定在顶部 */
+  width: 100%;     /* 占据整个宽度 */
+  height: 60px;
+  line-height: 60px;
+  background-color: #fff; /* 背景颜色，根据需要调整 */
+  z-index: 1000;   /* 确保在其他内容之上 */
 }
 </style>

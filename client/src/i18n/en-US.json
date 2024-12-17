@@ -3,8 +3,12 @@
     "title": "On Lottery Platform",
     "email": "Email",
     "cellphone": "Last four digits of phone number",
-    "button": "Enter"
+    "enter": "Enter",
+    "exit":"Exit"
   },
+  "home":{
+      "want_this_prize":"I want this prize"
+    },
   "messages": {
     "authorization_error": "Authorization error"
   }

@@ -11,7 +11,7 @@
         <el-input type="password" v-model="loginForm.password" :placeholder="$t('login.cellphone')"></el-input>
       </el-form-item>
       <el-form-item>
-        <el-button class="full-width-button" type="primary" plain native-type="submit">{{$t('login.button')}}</el-button>
+        <el-button class="full-width-button" type="primary" plain native-type="submit">{{$t('login.enter')}}</el-button>
       </el-form-item>
     </el-form>
   </div>
@@ -47,7 +47,7 @@ export default {
   flex-direction: column; /* 垂直排列子元素 */
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: calc(100vh - 100px);
   text-align: center;
 }
 
