@@ -1,7 +1,6 @@
 <template>
   <div class="login-container">
     <div class="login-title">
-      <h2>{{ $t('login.title') }}</h2>
     </div>
     <el-form @submit.prevent="handleLogin" :model="loginForm" style="width: 60%;">
       <el-form-item>
