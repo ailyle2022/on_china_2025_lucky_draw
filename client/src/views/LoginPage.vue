@@ -2,15 +2,15 @@
   <div class="login-container">
     <div class="login-title">
     </div>
-    <el-form @submit.prevent="handleLogin" :model="loginForm" style="width: 60%;">
+    <el-form @submit.prevent="handleLogin" :model="loginForm" style="width: 80%;">
       <el-form-item>
-        <el-input v-model="loginForm.username" :placeholder="$t('login.email')"></el-input>
+        <el-input class="height" v-model="loginForm.username" :placeholder="$t('login.email')"></el-input>
       </el-form-item>
       <el-form-item>
-        <el-input type="password" v-model="loginForm.password" :placeholder="$t('login.cellphone')"></el-input>
+        <el-input class="height" type="password" v-model="loginForm.password" :placeholder="$t('login.cellphone')"></el-input>
       </el-form-item>
       <el-form-item>
-        <el-button class="full-width-button" type="primary" plain native-type="submit">{{$t('login.enter')}}</el-button>
+        <button class="on-button-elem size-large bgcolor-block" type="primary" plain native-type="submit" round>{{$t('login.enter')}}</button>
       </el-form-item>
     </el-form>
   </div>
@@ -56,5 +56,9 @@ export default {
 
 .full-width-button {
   width: 100%;
+}
+
+.height{
+  height: 48px !important;
 }
 </style>

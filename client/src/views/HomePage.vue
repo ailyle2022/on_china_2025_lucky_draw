@@ -11,8 +11,8 @@
       />
     </div>
 
-    <div style="padding-bottom: 40px; padding-top: 20px;">
-      <el-button style="width: 100px;" class="full-width-button" type="info" plain @click="logout">{{$t('login.exit')}}</el-button>
+    <div style="padding-bottom: 40px; padding-top: 20px; width: 80%;">
+      <button class="on-button-elem size-large bgcolor-white" type="info" plain @click="logout" round>{{$t('login.exit')}}</button>
     </div>
   </div>
 </template>

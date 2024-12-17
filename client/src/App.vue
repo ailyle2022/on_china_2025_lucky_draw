@@ -73,4 +73,45 @@ export default {
 .language-switcher a:hover {
   color: #ccc;     /* 超链接悬停颜色，根据需要调整 */
 }
+
+.on-button-elem {
+  border-radius: 24px;
+  height: 48px !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  position: relative;
+  left: 0rpx;
+  top: 0rpx;
+  font-size: 28rpx;
+  width: 100%;
+  flex: 6;
+  -webkit-tap-highlight-color: transparent;
+  &.disabled {
+    background-color: #ccc !important;
+    border: #ccc !important;
+    color: #fff !important;
+  }
+  &.bgcolor-block {
+    border: 2rpx solid #000;
+    background-color: #000;
+    color: #fff;
+  }
+  &.bgcolor-white {
+    border: 2rpx solid #fff;
+    background-color: #fff;
+    color: #000;
+  }
+  &.bgcolor-white-hollow {
+    border: 2rpx solid #000;
+    background-color: #fff;
+    color: #000;
+  }
+  &.bgcolor-transparent {
+    border: 2rpx solid transparent;
+    background-color: transparent;
+    color: #000;
+  }
+}
 </style>
