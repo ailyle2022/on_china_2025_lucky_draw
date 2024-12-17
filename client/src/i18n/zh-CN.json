@@ -1,11 +1,11 @@
 {
     "login": {
-      "title": "登录",
-      "username": "用户名",
-      "password": "密码",
-      "button": "进入抽奖"
+      "title": "On昂跑 抽奖平台",
+      "email": "邮箱",
+      "cellphone": "手机号后四位",
+      "button": "进入"
     },
     "messages": {
-      "error": "用户名或密码错误"
+      "authorization_error": "授权错误"
     }
   }

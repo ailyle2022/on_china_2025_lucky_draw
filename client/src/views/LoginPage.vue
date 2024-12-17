@@ -3,15 +3,15 @@
     <div class="login-title">
       <h2>{{ $t('login.title') }}</h2>
     </div>
-    <el-form @submit.prevent="handleLogin" :model="loginForm" label-width="80px">
-      <el-form-item label="Email">
-        <el-input v-model="loginForm.username" placeholder="Please input your email"></el-input>
-      </el-form-item>
-      <el-form-item label="Cellphone">
-        <el-input type="password" v-model="loginForm.password" placeholder="Please input last 4 digit of"></el-input>
+    <el-form @submit.prevent="handleLogin" :model="loginForm" style="width: 60%;">
+      <el-form-item>
+        <el-input v-model="loginForm.username" :placeholder="$t('login.email')"></el-input>
       </el-form-item>
       <el-form-item>
-        <el-button type="primary" plain native-type="submit">进入抽奖</el-button>
+        <el-input type="password" v-model="loginForm.password" :placeholder="$t('login.cellphone')"></el-input>
+      </el-form-item>
+      <el-form-item>
+        <el-button class="full-width-button" type="primary" plain native-type="submit">{{$t('login.button')}}</el-button>
       </el-form-item>
     </el-form>
   </div>
@@ -34,7 +34,7 @@ export default {
         localStorage.setItem('userToken', this.loginForm.username);
         this.$router.push('/');
       } else {
-        this.$message.error('用户名或密码错误');
+        this.$message.error(this.$t('messages.authorization_error'));
       }
     }
   }

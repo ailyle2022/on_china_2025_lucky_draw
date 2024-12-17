@@ -1,11 +1,11 @@
 {
-    "login": {
-      "title": "Login",
-      "username": "Username",
-      "password": "Password",
-      "button": "Enter Lottery"
-    },
-    "messages": {
-      "error": "Invalid username or password"
-    }
+  "login": {
+    "title": "On Lottery Platform",
+    "email": "Email",
+    "cellphone": "Last four digits of phone number",
+    "button": "Enter"
+  },
+  "messages": {
+    "authorization_error": "Authorization error"
   }
+}
