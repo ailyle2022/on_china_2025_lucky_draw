@@ -8,7 +8,7 @@
     </el-col>
     <el-col :span="10">
       <h2>{{ level }}等奖 - {{ name }}</h2>
-      <div>{{winner}}</div>
+      <div>{{ winner }}</div>
       <el-button class="button" type="primary" @click="draw(id)">开始抽奖</el-button>
       <el-button class="button" type="danger" @click="reset(id)">重制</el-button>
     </el-col>
@@ -49,6 +49,7 @@ export default {
   },
   methods: {
     async draw(prizeId) {
+      this.winner = "";
       const userToken = localStorage.getItem('userToken');
 
       if (!prizeId || !userToken) {
@@ -57,8 +58,6 @@ export default {
       }
 
       try {
-        this.winner = "";
-        
         const response = await postRequest('draw', {
           token: userToken,
           prizeId: prizeId
@@ -77,7 +76,8 @@ export default {
         this.$message.error(this.$t('messages.unknow_error'));
       }
     },
-    async reset(prizeId){
+    async reset(prizeId) {
+      this.winner = "";
       const userToken = localStorage.getItem('userToken');
 
       if (!prizeId || !userToken) {

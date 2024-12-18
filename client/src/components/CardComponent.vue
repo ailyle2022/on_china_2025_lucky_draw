@@ -7,8 +7,8 @@
       <div class="bottom">
         <el-button class="button" @click="postInterest(id)">{{ $t('home.want_this_prize') }}</el-button>
       </div>
-      <div class="bottom">
-        <el-button class="button" type="primary">开始抽奖</el-button>
+      <div v-if="isAdmin === 'true'" class="bottom">
+        <el-button class="button" type="primary" @click="goToDrawPage(id)">进入抽奖页</el-button>
       </div>
     </div>
   </el-card>
@@ -72,6 +72,9 @@ export default {
         // 处理错误
         this.$message.error(this.$t('messages.can_not_change_wish'));
       }
+    },
+    goToDrawPage(id) {
+      this.$router.push({ name: 'Draw', params: { id: id } });
     }
   },
   mounted() {
