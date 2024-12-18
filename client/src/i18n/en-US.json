@@ -4,13 +4,15 @@
     "email": "Email",
     "cellphone": "Last four digits of phone number",
     "enter": "Enter",
-    "exit":"Exit"
+    "exit": "Exit"
   },
-  "home":{
-      "want_this_prize":"I want this prize"
-    },
+  "home": {
+    "want_this_prize": "I want this prize"
+  },
   "messages": {
     "authorization_error": "Authorization error",
-    "login_failed":"Login failed"
+    "login_failed": "Login failed",
+    "can_not_change_wish":"Can not change wish now",
+    "unknow_error": "unknow_error"
   }
 }

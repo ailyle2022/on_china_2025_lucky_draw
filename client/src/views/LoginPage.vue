@@ -50,8 +50,6 @@ export default {
           cellphone: this.loginForm.cellphone
         });
 
-        console.log(response)
-
         if (response.token){
           localStorage.setItem('userToken', response.token);
           this.$router.push('/');

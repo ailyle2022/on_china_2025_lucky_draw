@@ -1,16 +1,18 @@
 {
-    "login": {
-      "title": "On昂跑 抽奖平台",
-      "email": "邮箱",
-      "cellphone": "手机号后四位",
-      "enter": "进入",
-      "exit":"退出"
-    },
-    "home":{
-      "want_this_prize":"我想要这个奖品"
-    },
-    "messages": {
-      "authorization_error": "授权错误",
-      "login_failed":"登录失败"
-    }
+  "login": {
+    "title": "On昂跑 抽奖平台",
+    "email": "邮箱",
+    "cellphone": "手机号后四位",
+    "enter": "进入",
+    "exit": "退出"
+  },
+  "home": {
+    "want_this_prize": "我想要这个奖品"
+  },
+  "messages": {
+    "authorization_error": "授权错误",
+    "login_failed": "登录失败",
+    "can_not_change_wish":"现在无法修改愿望",
+    "unknow_error": "未知错误"
   }
+}

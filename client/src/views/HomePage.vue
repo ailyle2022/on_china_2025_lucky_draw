@@ -4,6 +4,7 @@
       <CardComponent 
         v-for="(prize, index) in prizes" 
         :key="index"
+        :id="prize.id"
         :image="require(`@/assets/${prize.id}.jpg`)" 
         :name="prize.name"
         :level="prize.level"
