@@ -29,6 +29,7 @@ model User {
   name      String     @unique
   token     String?
   prizeId   Int        @default(0)
+  isAdmin   Boolean    @default(false)
   Interest  Interest[]
 }
 

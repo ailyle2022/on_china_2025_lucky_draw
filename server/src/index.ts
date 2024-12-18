@@ -23,7 +23,7 @@ app.get("/prizes", async (req: Request, res: Response) => {
 
 app.post("/login", async (req: Request, res: Response) => {
   try {
-    const { email, cellphone } = req.body;
+    const { email, cellphone,  } = req.body;
     const user = await prisma.user.findFirst({
       where: {
         AND: [{ email: email }, { cellphone: cellphone }],
@@ -34,10 +34,13 @@ app.post("/login", async (req: Request, res: Response) => {
 
       await prisma.user.update({
         where: { id: user.id },
-        data: { token: token },
+        data: { token: token},
       });
 
-      res.json({ success: true, message: "User found", token: token });
+      res.json({ success: true, message: "User found", data:{
+        token: token,
+        isAdmin: user.isAdmin
+      }})
     } else {
       res.status(404).json({ success: false, message: "User not found" });
     }

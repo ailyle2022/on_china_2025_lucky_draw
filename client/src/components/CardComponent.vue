@@ -7,6 +7,9 @@
       <div class="bottom">
         <el-button class="button" @click="postInterest(id)">{{ $t('home.want_this_prize') }}</el-button>
       </div>
+      <div class="bottom">
+        <el-button class="button" type="primary">开始抽奖</el-button>
+      </div>
     </div>
   </el-card>
 </template>
@@ -39,7 +42,7 @@ export default {
   },
   data() {
     return {
-
+      isAdmin: false
     };
   },
   methods: {
@@ -70,6 +73,10 @@ export default {
         this.$message.error(this.$t('messages.can_not_change_wish'));
       }
     }
+  },
+  mounted() {
+    this.isAdmin = localStorage.getItem('isAdmin');
+    console.log(this.isAdmin);
   }
 };
 </script>

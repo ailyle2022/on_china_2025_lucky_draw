@@ -30,15 +30,6 @@ export default {
   },
   methods: {
     async handleLogin() {
-      // 这里可以添加实际的登录逻辑
-      /*
-      if (this.loginForm.username === 'admin' && this.loginForm.password === 'admin') {
-        localStorage.setItem('userToken', this.loginForm.username);
-        this.$router.push('/');
-      } else {
-        this.$message.error(this.$t('messages.authorization_error'));
-      }
-        */
        if (this.loginForm.email === "" || this.loginForm.cellphone === ""){
         this.$message.error(this.$t('messages.login_failed'));
         return;
@@ -50,8 +41,9 @@ export default {
           cellphone: this.loginForm.cellphone
         });
 
-        if (response.token){
-          localStorage.setItem('userToken', response.token);
+        if (response.success){
+          localStorage.setItem('userToken', response.data.token);
+          localStorage.setItem('isAdmin', response.data.isAdmin);
           this.$router.push('/');
         }
         
