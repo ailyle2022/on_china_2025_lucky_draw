@@ -44,7 +44,6 @@ export default {
   },
   methods: {
     async postInterest(prizeId) {
-      console.log(prizeId)
       const userToken = localStorage.getItem('userToken');
 
       if (!prizeId || !userToken) {
@@ -59,7 +58,7 @@ export default {
         });
 
         if (response.success) {
-          this.$message.info(this.$t(response.message));
+          this.$message.success(this.$t('messages.submit_success'));
         } else {
           this.$message.error(this.$t(response.message));
         }

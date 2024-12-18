@@ -13,6 +13,7 @@
     "authorization_error": "授权错误",
     "login_failed": "登录失败",
     "can_not_change_wish":"现在无法修改愿望",
-    "unknow_error": "未知错误"
+    "unknow_error": "未知错误",
+    "submit_success": "提交成功"
   }
 }

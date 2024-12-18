@@ -79,18 +79,29 @@ app.post("/interest", async (req: Request, res: Response) => {
       return;
     }
 
-    await prisma.interest.deleteMany({
+    const interest = await prisma.interest.findFirst({
       where: {
         userId: user.id,
       },
     });
 
-    await prisma.interest.create({
-      data: {
-        userId: user.id,
-        prizeId: prizeId,
-      },
-    });
+    if (interest) {
+      await prisma.interest.update({
+        where: {
+          id: interest.id,
+        },
+        data: {
+          prizeId: prizeId,
+        },
+      });
+    } else {
+      await prisma.interest.create({
+        data: {
+          userId: user.id,
+          prizeId: prizeId,
+        },
+      });
+    }
 
     res.json({ success: true });
   } catch (error) {
