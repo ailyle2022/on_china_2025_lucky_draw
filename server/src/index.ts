@@ -23,7 +23,7 @@ app.get("/prizes", async (req: Request, res: Response) => {
 
 app.post("/login", async (req: Request, res: Response) => {
   try {
-    const { email, cellphone,  } = req.body;
+    const { email, cellphone, } = req.body;
     const user = await prisma.user.findFirst({
       where: {
         AND: [{ email: email }, { cellphone: cellphone }],
@@ -34,13 +34,15 @@ app.post("/login", async (req: Request, res: Response) => {
 
       await prisma.user.update({
         where: { id: user.id },
-        data: { token: token},
+        data: { token: token },
       });
 
-      res.json({ success: true, message: "User found", data:{
-        token: token,
-        isAdmin: user.isAdmin
-      }})
+      res.json({
+        success: true, message: "User found", data: {
+          token: token,
+          isAdmin: user.isAdmin
+        }
+      })
     } else {
       res.status(404).json({ success: false, message: "User not found" });
     }
@@ -188,6 +190,37 @@ app.post("/draw", async (req: Request, res: Response) => {
     console.error(error);
     res.status(500).json({ success: false, message: "error" });
   }
+});
+
+app.post("/reset", async (req: Request, res: Response) => {
+  // 判断是否是Admin
+  const { token, prizeId } = req.body;
+
+  if (!token) {
+    res.status(400).json({ success: false, message: "Invalid request" });
+    return;
+  }
+
+  const user = await prisma.user.findFirst({
+    where: { token: token },
+  });
+
+  if (!user || user === null || !user.isAdmin) {
+    res.status(404).json({ success: false, message: "User is not admin" });
+    return;
+  }
+
+  // 重制
+  await prisma.user.updateMany({
+    data: {
+      prizeId: 0
+    },
+    where: {
+      prizeId: prizeId
+    }
+  });
+
+  res.json({ success: true });
 });
 
 // Start the server

@@ -10,6 +10,7 @@
       <h2>{{ level }}等奖 - {{ name }}</h2>
       <div>{{winner}}</div>
       <el-button class="button" type="primary" @click="draw(id)">开始抽奖</el-button>
+      <el-button class="button" type="danger" @click="reset(id)">重制</el-button>
     </el-col>
   </el-row>
 </template>
@@ -56,6 +57,8 @@ export default {
       }
 
       try {
+        this.winner = "";
+        
         const response = await postRequest('draw', {
           token: userToken,
           prizeId: prizeId
@@ -65,6 +68,33 @@ export default {
           this.winner = response.data.winner;
         } else {
           this.$message.error(this.$t(response.message));
+        }
+
+        // 处理响应数据
+      } catch (error) {
+        console.error('POST request failed:', error);
+        // 处理错误
+        this.$message.error(this.$t('messages.unknow_error'));
+      }
+    },
+    async reset(prizeId){
+      const userToken = localStorage.getItem('userToken');
+
+      if (!prizeId || !userToken) {
+        this.$message.error(this.$t('message.unknow_error'));
+        return;
+      }
+
+      try {
+        const response = await postRequest('reset', {
+          token: userToken,
+          prizeId: prizeId
+        });
+
+        if (response.success) {
+          this.$message.success("reset success");
+        } else {
+          this.$message.error("reset failed");
         }
 
         // 处理响应数据
@@ -89,5 +119,6 @@ export default {
 
 .button {
   margin-top: 20px;
+  width: 100px;
 }
 </style>
