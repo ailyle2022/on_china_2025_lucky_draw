@@ -1,7 +1,7 @@
 // src/services/apiService.js
 import axios from 'axios';
 
-const API_BASE_URL = 'http://localhost:3000'; // 替换为你的 API 基础 URL
+const API_BASE_URL = process.env.VUE_APP_API_BASE_URL; // 替换为你的 API 基础 URL
 
 export const postRequest = async (endpoint, data) => {
   try {
