@@ -22,7 +22,6 @@
 import CardComponent from '@/components/CardComponent.vue';
 import { getRequest } from '@/services/apiService.js';
 
-
 export default {
   components: {
     CardComponent

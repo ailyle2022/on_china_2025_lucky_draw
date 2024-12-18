@@ -15,7 +15,7 @@ const routes = [
     component: LoginPage
   },
   {
-    path: '/draw',
+    path: '/draw/:id',
     name: "Draw",
     component: () => import('../views/DrawPage.vue')
   }
