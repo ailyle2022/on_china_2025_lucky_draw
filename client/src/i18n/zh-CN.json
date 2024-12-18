@@ -10,6 +10,7 @@
       "want_this_prize":"我想要这个奖品"
     },
     "messages": {
-      "authorization_error": "授权错误"
+      "authorization_error": "授权错误",
+      "login_failed":"登录失败"
     }
   }

@@ -10,6 +10,7 @@
       "want_this_prize":"I want this prize"
     },
   "messages": {
-    "authorization_error": "Authorization error"
+    "authorization_error": "Authorization error",
+    "login_failed":"Login failed"
   }
 }
