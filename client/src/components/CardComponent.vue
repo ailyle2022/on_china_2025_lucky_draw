@@ -76,7 +76,6 @@ export default {
   },
   mounted() {
     this.isAdmin = localStorage.getItem('isAdmin');
-    console.log(this.isAdmin);
   }
 };
 </script>

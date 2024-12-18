@@ -1,14 +1,17 @@
 <!-- src/components/CardComponent.vue -->
 <template>
-  <el-card :body-style="{ padding: '0px' }">
-    <img :src="image" class="image" />
-    <div style="padding: 14px">
-      <span>{{ level }}等奖 - {{ name }} x {{ quantity }}</span>
-      <div class="bottom">
-        <el-button class="button" type="primary">开始抽奖</el-button>
-      </div>
-    </div>
-  </el-card>
+  <el-row :gutter="20" type="flex" align="middle" justify="center">
+    <el-col :span="10">
+      <el-card :body-style="{ padding: '0px' }">
+        <img :src="image" class="image" />
+      </el-card>
+    </el-col>
+    <el-col :span="10">
+      <h2>{{ level }}等奖 - {{ name }}</h2>
+      <div>{{winner}}</div>
+      <el-button class="button" type="primary" @click="draw(id)">开始抽奖</el-button>
+    </el-col>
+  </el-row>
 </template>
 
 <script>
@@ -39,11 +42,12 @@ export default {
   },
   data() {
     return {
-      isAdmin: false
+      isAdmin: false,
+      winner: ""
     };
   },
   methods: {
-    async postInterest(prizeId) {
+    async draw(prizeId) {
       const userToken = localStorage.getItem('userToken');
 
       if (!prizeId || !userToken) {
@@ -52,13 +56,13 @@ export default {
       }
 
       try {
-        const response = await postRequest('interest', {
+        const response = await postRequest('draw', {
           token: userToken,
           prizeId: prizeId
         });
 
         if (response.success) {
-          this.$message.success(this.$t('messages.submit_success'));
+          this.winner = response.data.winner;
         } else {
           this.$message.error(this.$t(response.message));
         }
@@ -67,13 +71,12 @@ export default {
       } catch (error) {
         console.error('POST request failed:', error);
         // 处理错误
-        this.$message.error(this.$t('messages.can_not_change_wish'));
+        this.$message.error(this.$t('messages.unknow_error'));
       }
     }
   },
   mounted() {
     this.isAdmin = localStorage.getItem('isAdmin');
-    console.log(this.isAdmin);
   }
 };
 </script>
@@ -84,17 +87,7 @@ export default {
   display: block;
 }
 
-.bottom {
-  margin-top: 13px;
-  line-height: 12px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
 .button {
-  padding: 0;
-  float: right;
-  width: 100%;
+  margin-top: 20px;
 }
 </style>

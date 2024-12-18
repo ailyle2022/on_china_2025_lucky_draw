@@ -1,14 +1,7 @@
 <template>
     <div class="common-layout">
-        <el-row :gutter="20">
-            <el-col :span="12">
-                <DrawPrizeComponent :id="prize.id" :image="require(`@/assets/${prize.id}.jpg`)" :name="prize.name"
+        <DrawPrizeComponent :id="prize.id" :image="require(`@/assets/${prize.id}.jpg`)" :name="prize.name"
                     :level="prize.level" :quantity="prize.quantity" />
-            </el-col>
-            <el-col :span="12">
-
-            </el-col>
-        </el-row>
     </div>
 </template>
 
