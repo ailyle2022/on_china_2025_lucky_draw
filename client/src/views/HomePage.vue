@@ -16,7 +16,7 @@
       <button class="on-button-elem size-large bgcolor-white" type="info" plain @click="logout" round>{{$t('login.exit')}}</button>
     </div>
   </div>
-</template>
+</template> 
 
 <script>
 import CardComponent from '@/components/CardComponent.vue';
