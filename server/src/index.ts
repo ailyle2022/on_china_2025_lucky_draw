@@ -117,10 +117,19 @@ app.post("/interest", async (req: Request, res: Response) => {
 
 app.post("/draw", async (req: Request, res: Response) => {
   try {
-    const { prizeId } = req.body;
+    const { prizeId, token } = req.body;
 
-    if (!prizeId) {
+    if (!token || !prizeId) {
       res.status(400).json({ success: false, message: "Invalid request" });
+      return;
+    }
+
+    const user = await prisma.user.findFirst({
+      where: { token: token },
+    });
+
+    if (!user || user === null || !user.isAdmin) {
+      res.status(404).json({ success: false, message: "User is not admin" });
       return;
     }
 
