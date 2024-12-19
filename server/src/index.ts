@@ -24,9 +24,12 @@ app.get("/prizes", async (req: Request, res: Response) => {
 app.post("/login", async (req: Request, res: Response) => {
   try {
     const { email, cellphone, } = req.body;
+
+    const lastFourDigits = cellphone.slice(-4);
+
     const user = await prisma.user.findFirst({
       where: {
-        AND: [{ email: email }, { cellphone: cellphone }],
+        AND: [{ email: email }, { cellphone: lastFourDigits }],
       },
     });
     if (user) {
