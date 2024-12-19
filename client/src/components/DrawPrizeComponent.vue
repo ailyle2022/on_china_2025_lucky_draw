@@ -11,6 +11,7 @@
       <div>{{ winner }}</div>
       <el-button class="button" type="primary" @click="draw(id)">开始抽奖</el-button>
       <el-button class="button" type="danger" @click="reset(id)">重制</el-button>
+      <el-button class="button" @click="gotoHome()">返回首页</el-button>
     </el-col>
   </el-row>
 </template>
@@ -75,6 +76,9 @@ export default {
         // 处理错误
         this.$message.error(this.$t('messages.unknow_error'));
       }
+    },
+    async gotoHome(){
+      this.$router.push({ name: 'Home' });
     },
     async reset(prizeId) {
       this.winner = "";
