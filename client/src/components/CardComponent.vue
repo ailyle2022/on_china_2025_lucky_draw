@@ -1,17 +1,22 @@
 <!-- src/components/CardComponent.vue -->
 <template>
-  <el-card :body-style="{ padding: '0px' }">
-    <img :src="image" class="image" />
-    <div style="padding: 14px">
-      <span>{{ level }}等奖 - {{ name }} x {{ quantity }}</span>
-      <div class="bottom">
-        <el-button class="button" @click="postInterest(id)">{{ $t('home.want_this_prize') }}</el-button>
-      </div>
-      <div v-if="isAdmin === 'true'" class="bottom">
-        <el-button class="button" type="primary" @click="goToDrawPage(id)">进入抽奖页</el-button>
-      </div>
+  <el-col :xs="24" :sm="24" :md="6" :lg="6" :xl="6">
+    <div class="grid-content ep-bg-purple">
+      <el-card :body-style="{ padding: '0px' }">
+        <img :src="image" class="image" />
+        <div style="padding: 14px">
+          <span>{{ level }}等奖 - {{ name }} x {{ quantity }}</span>
+          <div class="bottom">
+            <el-button class="button" @click="postInterest(id)">{{ $t('home.want_this_prize') }}</el-button>
+          </div>
+          <div v-if="isAdmin === 'true'" class="bottom">
+            <el-button class="button" type="primary" @click="goToDrawPage(id)">进入抽奖页</el-button>
+          </div>
+        </div>
+      </el-card>
     </div>
-  </el-card>
+  </el-col>
+
 </template>
 
 <script>
@@ -19,7 +24,7 @@ import { postRequest } from '@/services/apiService.js';
 
 export default {
   props: {
-    id:{
+    id: {
       type: Number,
       required: true
     },

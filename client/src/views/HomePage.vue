@@ -1,22 +1,17 @@
 <template>
   <div class="home-container">
-    <div>
-      <CardComponent 
-        v-for="(prize, index) in prizes" 
-        :key="index"
-        :id="prize.id"
-        :image="require(`@/assets/${prize.id}.jpg`)" 
-        :name="prize.name"
-        :level="prize.level"
-        :quantity="prize.quantity"
-      />
-    </div>
+    <el-row :gutter="10">
+      <CardComponent v-for="(prize, index) in prizes" :key="index" :id="prize.id"
+        :image="require(`@/assets/${prize.id}.jpg`)" :name="prize.name" :level="prize.level"
+        :quantity="prize.quantity" />
+    </el-row>
 
     <div style="padding-bottom: 40px; padding-top: 20px; width: 80%;">
-      <button class="on-button-elem size-large bgcolor-white" type="info" plain @click="logout" round>{{$t('login.exit')}}</button>
+      <button class="on-button-elem size-large bgcolor-white" type="info" plain @click="logout"
+        round>{{ $t('login.exit') }}</button>
     </div>
   </div>
-</template> 
+</template>
 
 <script>
 import CardComponent from '@/components/CardComponent.vue';
@@ -57,7 +52,8 @@ export default {
 <style scoped>
 .home-container {
   display: flex;
-  flex-direction: column; /* 垂直排列子元素 */
+  flex-direction: column;
+  /* 垂直排列子元素 */
   align-items: center;
   height: 100vh;
   padding: 10px;
@@ -79,7 +75,7 @@ export default {
   min-height: auto;
 }
 
-.el-card{
+.el-card {
   margin-bottom: 20px;
 }
 
