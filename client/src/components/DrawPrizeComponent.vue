@@ -45,7 +45,10 @@ export default {
   data() {
     return {
       isAdmin: false,
-      winner: ""
+      winner: "",
+      currentIndex: 0,
+      intervalId: 0,
+      userPool: []
     };
   },
   methods: {
@@ -65,7 +68,8 @@ export default {
         });
 
         if (response.success) {
-          this.winner = response.data.winner;
+          this.userPool = response.data.userPool;
+          this.startDraw(response.data.winner);
         } else {
           this.$message.error(this.$t(response.message));
         }
@@ -77,7 +81,23 @@ export default {
         this.$message.error(this.$t('message.unknow_error'));
       }
     },
-    async gotoHome(){
+    startDraw(winner) {
+      this.currentIndex = 0;
+      this.intervalId = setInterval(() => {
+        this.currentIndex = this.currentIndex % this.userPool.length;
+        this.winner = this.userPool[this.currentIndex];
+
+        if (this.userPool[this.currentIndex] === winner) {
+          clearInterval(this.intervalId);
+        } else {
+          this.currentIndex++;
+        }
+      }, 50);
+    },
+    stopDraw() {
+
+    },
+    async gotoHome() {
       this.$router.push({ name: 'Home' });
     },
     async reset(prizeId) {
