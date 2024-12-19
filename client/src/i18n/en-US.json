@@ -2,7 +2,7 @@
   "login": {
     "title": "On Lottery Platform",
     "email": "Email",
-    "cellphone": "Last four digits of phone number",
+    "cellphone": "Phone number",
     "enter": "Enter",
     "exit": "Exit"
   },

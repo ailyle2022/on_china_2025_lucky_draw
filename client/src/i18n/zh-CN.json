@@ -2,7 +2,7 @@
   "login": {
     "title": "On昂跑 抽奖平台",
     "email": "邮箱",
-    "cellphone": "手机号后四位",
+    "cellphone": "手机号",
     "enter": "进入",
     "exit": "退出"
   },
