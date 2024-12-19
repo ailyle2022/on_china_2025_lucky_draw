@@ -1,6 +1,6 @@
 {
   "login": {
-    "title": "On Lottery Platform",
+    "title": "On 2025 Annual Party Lottery",
     "email": "Email",
     "cellphone": "Phone number",
     "enter": "Enter",
@@ -9,7 +9,7 @@
   "home": {
     "want_this_prize": "I want this prize"
   },
-  "messages": {
+  "message": {
     "authorization_error": "Authorization error",
     "login_failed": "Login failed",
     "can_not_change_wish":"Can not change wish now",

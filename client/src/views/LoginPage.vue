@@ -31,7 +31,7 @@ export default {
   methods: {
     async handleLogin() {
        if (this.loginForm.email === "" || this.loginForm.cellphone === ""){
-        this.$message.error(this.$t('messages.login_failed'));
+        this.$message.error(this.$t('message.login_failed'));
         return;
        }
 

@@ -74,7 +74,7 @@ export default {
       } catch (error) {
         console.error('POST request failed:', error);
         // 处理错误
-        this.$message.error(this.$t('messages.unknow_error'));
+        this.$message.error(this.$t('message.unknow_error'));
       }
     },
     async gotoHome(){
@@ -105,7 +105,7 @@ export default {
       } catch (error) {
         console.error('POST request failed:', error);
         // 处理错误
-        this.$message.error(this.$t('messages.unknow_error'));
+        this.$message.error(this.$t('message.unknow_error'));
       }
     }
   },

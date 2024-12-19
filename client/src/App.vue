@@ -22,6 +22,8 @@ export default {
       locale.value = lang;
     };
 
+    document.title = `On 2025 Annual Party Lottery`;
+
     return {
       changeLanguage
     };

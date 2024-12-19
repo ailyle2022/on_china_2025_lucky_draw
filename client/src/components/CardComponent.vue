@@ -67,7 +67,7 @@ export default {
         });
 
         if (response.success) {
-          this.$message.success(this.$t('messages.submit_success'));
+          this.$message.success(this.$t('message.submit_success'));
         } else {
           this.$message.error(this.$t(response.message));
         }
@@ -76,7 +76,7 @@ export default {
       } catch (error) {
         console.error('POST request failed:', error);
         // 处理错误
-        this.$message.error(this.$t('messages.can_not_change_wish'));
+        this.$message.error(this.$t('message.can_not_change_wish'));
       }
     },
     goToDrawPage(id) {
