@@ -11,7 +11,7 @@
       <h1 style="height: 300px; line-height: 300px;">{{ winner }}</h1>
       <el-button class="button" type="primary" @click="draw(id)">开始抽奖</el-button>
       <el-button class="button" type="danger" @click="reset(id)">重制</el-button>
-      <el-button class="button" @click="gotoHome()">返回首页</el-button>
+      <el-button class="button" @click="gotoDrawList()">返回抽奖列表</el-button>
     </el-col>
   </el-row>
 </template>
@@ -100,8 +100,8 @@ export default {
     stopDraw() {
 
     },
-    async gotoHome() {
-      this.$router.push({ name: 'Home' });
+    async gotoDrawList() {
+      this.$router.push({ name: 'DrawList' });
     },
     async reset(prizeId) {
       this.winner = "";

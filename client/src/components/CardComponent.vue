@@ -80,7 +80,7 @@ export default {
       }
     },
     goToDrawPage(id) {
-      this.$router.push({ name: 'Draw', params: { id: id } });
+      this.$router.push({ name: 'DrawPage', params: { id: id } });
     }
   },
   mounted() {

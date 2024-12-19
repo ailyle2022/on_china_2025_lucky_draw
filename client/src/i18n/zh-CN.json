@@ -1,6 +1,6 @@
 {
   "login": {
-    "title": "On昂跑 抽奖平台",
+    "title": "On昂跑 2025 年会",
     "email": "邮箱",
     "cellphone": "手机号",
     "enter": "进入",
@@ -8,6 +8,11 @@
   },
   "home": {
     "want_this_prize": "我想要这个奖品"
+  },
+  "button":{
+    "go_to_home":"返回首页",
+    "go_to_draw":"进入抽奖页",
+    "go_to_vote":"进入投票页"
   },
   "message": {
     "authorization_error": "授权错误",
