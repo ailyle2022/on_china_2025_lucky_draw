@@ -8,7 +8,7 @@
     </el-col>
     <el-col :span="10">
       <h2>{{ level }}等奖 - {{ name }}</h2>
-      <div>{{ winner }}</div>
+      <h1 style="height: 300px; line-height: 300px;">{{ winner }}</h1>
       <el-button class="button" type="primary" @click="draw(id)">开始抽奖</el-button>
       <el-button class="button" type="danger" @click="reset(id)">重制</el-button>
       <el-button class="button" @click="gotoHome()">返回首页</el-button>
