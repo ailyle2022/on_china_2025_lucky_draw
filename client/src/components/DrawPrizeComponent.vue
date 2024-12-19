@@ -44,6 +44,7 @@ export default {
   },
   data() {
     return {
+      timeIndex: 0,
       isAdmin: false,
       winner: "",
       currentIndex: 0,
@@ -82,16 +83,18 @@ export default {
       }
     },
     startDraw(winner) {
+      this.timeIndex = 0;
       this.currentIndex = 0;
       this.intervalId = setInterval(() => {
         this.currentIndex = this.currentIndex % this.userPool.length;
         this.winner = this.userPool[this.currentIndex];
+        this.timeIndex ++;
+        this.currentIndex++;
 
-        if (this.userPool[this.currentIndex] === winner) {
+        if (this.timeIndex > 50) {
           clearInterval(this.intervalId);
-        } else {
-          this.currentIndex++;
-        }
+          this.winner = winner;
+        } 
       }, 50);
     },
     stopDraw() {
