@@ -6,7 +6,7 @@
         :quantity="prize.quantity" />
     </el-row>
 
-    <div style="padding-bottom: 40px; padding-top: 20px; width: 80%;">
+    <div style="padding-bottom: 40px; padding-top: 20px; width: 200px;">
       <button class="on-button-elem size-large bgcolor-white" type="info" plain @click="logout"
         round>{{ $t('login.exit') }}</button>
     </div>

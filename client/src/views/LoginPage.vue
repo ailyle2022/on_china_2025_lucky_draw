@@ -2,7 +2,7 @@
   <div class="login-container">
     <div class="login-title">
     </div>
-    <el-form @submit.prevent="handleLogin" :model="loginForm" style="width: 80%;">
+    <el-form @submit.prevent="handleLogin" :model="loginForm" style="width: 300px;">
       <el-form-item>
         <el-input class="height" v-model="loginForm.email" :placeholder="$t('login.email')"></el-input>
       </el-form-item>
