@@ -21,6 +21,21 @@ app.get("/prizes", async (req: Request, res: Response) => {
   }
 });
 
+app.get("/nameList", async (req: Request, res: Response) => {
+  try {
+    const nameList = await prisma.user.findMany({
+      where:{
+        token:{
+          not:null
+        }
+      }
+    });
+    res.json(nameList);
+  } catch (error) {
+    res.status(500).json({ error: "Failed to fetch name list" });
+  }
+});
+
 app.post("/login", async (req: Request, res: Response) => {
   try {
     const { email, cellphone, } = req.body;
