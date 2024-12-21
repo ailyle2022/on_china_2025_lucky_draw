@@ -51,8 +51,9 @@ app.get("/voteResult", async (req: Request, res: Response) => {
       count: group._count.vote,
     }));
     formattedVoteCounts.sort((a, b) => b.count - a.count);
+    const topVoteCounts = formattedVoteCounts.slice(0, 8);
 
-    res.json(formattedVoteCounts);
+    res.json(topVoteCounts);
   } catch (error) {
     console.error("Error fetching vote counts:", error);
     res.status(500).json({ error: "Failed to fetch vote counts" });
