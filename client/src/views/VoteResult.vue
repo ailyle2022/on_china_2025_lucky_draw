@@ -1,11 +1,17 @@
 <template>
   <div class="login-container">
-    <div class="demo-progress">
-
+    
+    <div v-if="result.length > 0">
+      <div v-for="(item, index) in result" :key="index">
+        <div v-if="item && item.vote !== undefined && item.count !== undefined">
+          <h2>{{ item.vote }}: </h2>
+          <div class="black-square" :style="{ width: item.count * 20 + 'px' }"></div>
+        </div>
+      </div>
     </div>
+  
     <div style="width: 300px;">
-
-      <button style="margin-top: 20px;" class="on-button-elem size-large bgcolor-white" type="info" plain
+      <button style="margin-top: 50px;" class="on-button-elem size-large bgcolor-white" type="info" plain
         @click="goToHomePage()" round>{{
           $t('button.go_to_home') }}</button>
     </div>
@@ -56,6 +62,11 @@ export default {
 </script>
 
 <style scoped>
+.black-square {
+  height: 20px;
+  background-color: black;
+  margin-top: 20px; /* 根据需要调整间距 */
+}
 .login-container {
   display: flex;
   flex-direction: column;
