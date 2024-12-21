@@ -39,10 +39,9 @@ export default {
   flex-direction: column;
   /* 垂直排列子元素 */
   align-items: center;
+  justify-content: center;
   height: calc(100vh - 60px);
-  padding: 10px;
   text-align: center;
-  margin-top: 60px;
 }
 
 .button {
