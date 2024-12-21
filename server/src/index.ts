@@ -24,15 +24,38 @@ app.get("/prizes", async (req: Request, res: Response) => {
 app.get("/nameList", async (req: Request, res: Response) => {
   try {
     const nameList = await prisma.user.findMany({
-      where:{
-        token:{
-          not:null
+      where: {
+        token: {
+          not: null
         }
       }
     });
     res.json(nameList);
   } catch (error) {
     res.status(500).json({ error: "Failed to fetch name list" });
+  }
+});
+
+app.get("/voteResult", async (req: Request, res: Response) => {
+  try {
+    const voteCounts = await prisma.user.groupBy({
+      by: ['vote'],
+      _count: {
+        vote: true,
+      },
+    });
+
+    const filteredVoteCounts = voteCounts.filter(group => group.vote !== "");
+    const formattedVoteCounts = filteredVoteCounts.map(group => ({
+      vote: group.vote,
+      count: group._count.vote,
+    }));
+    formattedVoteCounts.sort((a, b) => b.count - a.count);
+
+    res.json(formattedVoteCounts);
+  } catch (error) {
+    console.error("Error fetching vote counts:", error);
+    res.status(500).json({ error: "Failed to fetch vote counts" });
   }
 });
 
@@ -150,7 +173,7 @@ app.post("/vote", async (req: Request, res: Response) => {
     }
 
     // vote
-    if (user.vote != "" && user.vote != null){
+    if (user.vote != "" && user.vote != null) {
       res.status(400).json({ success: false, message: "Already voted" });
       return;
     }
