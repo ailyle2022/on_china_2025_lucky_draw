@@ -32,6 +32,7 @@ model User {
   prizeId   Int        @default(0)
   isAdmin   Boolean    @default(false)
   Interest  Interest[]
+  vote      String?
 }
 
 model Interest {

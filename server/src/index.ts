@@ -131,6 +131,42 @@ app.post("/interest", async (req: Request, res: Response) => {
   }
 });
 
+app.post("/vote", async (req: Request, res: Response) => {
+  try {
+    const { token, name } = req.body;
+
+    if (!token || !name || name === "") {
+      res.status(400).json({ success: false, message: "Invalid request" });
+      return;
+    }
+
+    const user = await prisma.user.findFirst({
+      where: { token: token },
+    });
+
+    if (!user || user === null) {
+      res.status(404).json({ success: false, message: "User not found" });
+      return;
+    }
+
+    // vote
+    if (user.vote != "" && user.vote != null){
+      res.status(400).json({ success: false, message: "Already voted" });
+      return;
+    }
+
+    await prisma.user.update({
+      where: { id: user.id },
+      data: { vote: name },
+    });
+
+    res.json({ success: true });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ success: false, message: "error" });
+  }
+});
+
 app.post("/draw", async (req: Request, res: Response) => {
   try {
     const { prizeId, token } = req.body;
