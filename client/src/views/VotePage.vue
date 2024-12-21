@@ -2,17 +2,15 @@
   <div class="login-container">
     <div class="login-title">
     </div>
-    <el-form @submit.prevent="handleLogin" :model="loginForm" style="width: 300px;" size="large">
-      <el-form-item>
-        <el-select v-model="value" filterable placeholder="Select" style="width: '300px'">
-          <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value" />
-        </el-select>
-      </el-form-item>
-      <el-form-item>
-        <button class="on-button-elem size-large bgcolor-block" type="primary" plain native-type="submit"
-          round>{{ $t('login.enter') }}</button>
-      </el-form-item>
-    </el-form>
+    <div style="width: 300px;">
+      <el-select v-model="value" filterable placeholder="Select" style="width: '300px'">
+        <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value" />
+      </el-select>
+
+      <button style="margin-top: 20px;" class="on-button-elem size-large bgcolor-block" type="primary" plain
+        @click="handleVote()" round>{{
+          $t('button.submit') }}</button>
+    </div>
   </div>
 </template>
 
@@ -64,6 +62,9 @@ export default {
         // 处理错误
         this.$message.error(this.$t('message.login_failed'));
       }
+    },
+    async handleVote() {
+      console.log(this.value)
     }
   }
 };
