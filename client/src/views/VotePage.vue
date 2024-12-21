@@ -29,33 +29,29 @@ export default {
     };
   },
   methods: {
-    async handleLogin() {
-      if (this.loginForm.email === "" || this.loginForm.cellphone === "") {
-        this.$message.error(this.$t('message.login_failed'));
+    async handleVote() {
+      if (this.value === "") {
+        this.$message.error(this.$t('message.please_vote'));
         return;
       }
 
       try {
-        const response = await postRequest('login', {
-          email: this.loginForm.email,
-          cellphone: this.loginForm.cellphone
+        const userToken = localStorage.getItem('userToken');
+
+        const response = await postRequest('vote', {
+          token: userToken,
+          name: this.value
         });
 
         if (response.success) {
-          localStorage.setItem('userToken', response.data.token);
-          localStorage.setItem('isAdmin', response.data.isAdmin);
-          this.$router.push('/');
+          this.$message.success(this.$t('message.submit_success'));
+        } else {
+          this.$message.error(this.$t('messsage.already_voted'));
         }
-
-        // 处理响应数据
       } catch (error) {
-        console.error('POST request failed:', error);
-        // 处理错误
-        this.$message.error(this.$t('message.login_failed'));
+        this.$message.error(this.$t('message.already_voted'));
       }
-    },
-    async handleVote() {
-      console.log(this.value)
+
     },
     async fetchNameList() {
       try {

@@ -9,17 +9,19 @@
   "home": {
     "want_this_prize": "我想要这个奖品"
   },
-  "button":{
-    "go_to_home":"返回首页",
-    "go_to_draw":"进入抽奖页",
-    "go_to_vote":"进入投票页",
-    "submit":"提交"
+  "button": {
+    "go_to_home": "返回首页",
+    "go_to_draw": "进入抽奖页",
+    "go_to_vote": "进入投票页",
+    "submit": "提交"
   },
   "message": {
     "authorization_error": "授权错误",
     "login_failed": "登录失败",
-    "can_not_change_wish":"现在无法修改愿望",
+    "can_not_change_wish": "现在无法修改愿望",
     "unknow_error": "未知错误",
-    "submit_success": "提交成功"
+    "submit_success": "提交成功",
+    "please_vote": "请选择提名",
+    "already_voted": "无法重复投票"
   }
 }

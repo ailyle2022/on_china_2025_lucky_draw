@@ -20,6 +20,8 @@
     "login_failed": "Login failed",
     "can_not_change_wish":"Can not change wish now",
     "unknow_error": "Unknow error",
-    "submit_success":"Submit success"
+    "submit_success":"Submit success",
+    "please_vote": "Please vote",
+    "already_voted": "Can not vote again"
   }
 }
