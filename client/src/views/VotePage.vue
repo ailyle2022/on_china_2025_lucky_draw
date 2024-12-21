@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import { postRequest } from '@/services/apiService';
+import { postRequest, getRequest } from '@/services/apiService';
 
 export default {
   data() {
@@ -25,16 +25,7 @@ export default {
         cellphone: ''
       },
       value: '',
-      options: [
-        {
-          value: 'Option1',
-          label: 'Option1',
-        },
-        {
-          value: 'Option2',
-          label: 'Option2',
-        }
-      ]
+      options: []
     };
   },
   methods: {
@@ -65,7 +56,30 @@ export default {
     },
     async handleVote() {
       console.log(this.value)
+    },
+    async fetchNameList() {
+      try {
+        const response = await getRequest('nameList');
+        if (response) {
+          for (var i = 0; i < response.length; i++) {
+            this.options.push({
+              value: response[i].name,
+              label: response[i].name
+            });
+          }
+        } else {
+          this.$message.error(this.$t('message.unknow_error'));
+        }
+        // 处理响应数据
+      } catch (error) {
+        console.error('GET request failed:', error);
+        // 处理错误
+        this.$message.error(this.$t('message.unknow_error'));
+      }
     }
+  },
+  mounted() {
+    this.fetchNameList();
   }
 };
 </script>
