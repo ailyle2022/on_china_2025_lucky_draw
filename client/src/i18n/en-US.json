@@ -9,6 +9,12 @@
   "home": {
     "want_this_prize": "I want this prize"
   },
+  "button":{
+    "go_to_home":"Home page",
+    "go_to_draw":"Draw page",
+    "go_to_vote":"Vote page",
+    "submit":"Submit"
+  },
   "message": {
     "authorization_error": "Authorization error",
     "login_failed": "Login failed",

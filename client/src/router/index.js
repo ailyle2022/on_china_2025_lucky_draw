@@ -1,12 +1,19 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import HomePage from '../views/HomePage.vue';
 import LoginPage from '../views/LoginPage.vue';
+import VotePage from '../views/VotePage.vue';
 
 const routes = [
   {
     path: '/',
     name: 'Home',
     component: HomePage,
+    meta: { requiresAuth: true }
+  },
+  {
+    path: '/vote',
+    name: 'Vote',
+    component: VotePage,
     meta: { requiresAuth: true }
   },
   {
@@ -17,12 +24,14 @@ const routes = [
   {
     path: '/draw',
     name: "DrawList",
-    component: () => import('../views/DrawList.vue')
+    component: () => import('../views/DrawList.vue'),
+    meta: { requiresAuth: true }
   },
   {
     path: '/draw/:id',
     name: "DrawPage",
-    component: () => import('../views/DrawPage.vue')
+    component: () => import('../views/DrawPage.vue'),
+    meta: { requiresAuth: true }
   }
 ];
 

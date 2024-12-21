@@ -8,7 +8,7 @@
     </div>
 
     <div style="padding-bottom: 40px; padding-top: 20px; width: 200px;">
-      <button class="on-button-elem size-large bgcolor-white" type="info" plain @click="navTo('Home')" round>{{
+      <button class="on-button-elem size-large bgcolor-white" type="info" plain @click="navTo('Vote')" round>{{
         $t('button.go_to_vote') }}</button>
     </div>
 
