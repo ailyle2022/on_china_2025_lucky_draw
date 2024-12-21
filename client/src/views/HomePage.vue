@@ -2,17 +2,22 @@
   <div class="home-container">
 
 
-    <div style="padding-bottom: 40px; padding-top: 20px; width: 200px;">
+    <div style="padding-bottom: 40px; padding-top: 20px; width: 300px;">
       <button class="on-button-elem size-large bgcolor-white" type="info" plain @click="navTo('DrawList')" round>{{
         $t('button.go_to_draw') }}</button>
     </div>
 
-    <div style="padding-bottom: 40px; padding-top: 20px; width: 200px;">
+    <div style="padding-bottom: 40px; padding-top: 20px; width: 300px;">
       <button class="on-button-elem size-large bgcolor-white" type="info" plain @click="navTo('Vote')" round>{{
         $t('button.go_to_vote') }}</button>
     </div>
 
-    <div style="padding-bottom: 40px; padding-top: 20px; width: 200px;">
+    <div v-if="isAdmin === 'true'" style="padding-bottom: 40px; padding-top: 20px; width: 300px;">
+      <button class="on-button-elem size-large bgcolor-white" type="info" plain @click="navTo('VoteResult')" round>{{
+        $t('button.go_to_vote_result') }}</button>
+    </div>
+
+    <div style="padding-bottom: 40px; padding-top: 20px; width: 300px;">
       <button class="on-button-elem size-large bgcolor-black" plain @click="logout" round>{{ $t('login.exit')
         }}</button>
     </div>
@@ -21,14 +26,20 @@
 
 <script>
 export default {
+  data: () => ({
+    isAdmin: false
+  }),
   methods: {
     logout() {
       localStorage.removeItem('userToken');
       this.$router.push('/login');
     },
-   navTo(name) {
+    navTo(name) {
       this.$router.push({ name: name });
     },
+  },
+  mounted() {
+    this.isAdmin = localStorage.getItem('isAdmin');
   }
 }
 </script>

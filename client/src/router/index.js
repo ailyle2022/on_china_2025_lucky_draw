@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 import HomePage from '../views/HomePage.vue';
 import LoginPage from '../views/LoginPage.vue';
 import VotePage from '../views/VotePage.vue';
+import VoteResult from '../views/VoteResult.vue';
 
 const routes = [
   {
@@ -14,6 +15,12 @@ const routes = [
     path: '/vote',
     name: 'Vote',
     component: VotePage,
+    meta: { requiresAuth: true }
+  },
+  {
+    path: '/voteResult',
+    name: 'VoteResult',
+    component: VoteResult,
     meta: { requiresAuth: true }
   },
   {

@@ -6,7 +6,7 @@
         :quantity="prize.quantity" />
     </el-row>
 
-    <div style="padding-bottom: 40px; padding-top: 20px; width: 200px;">
+    <div style="padding-bottom: 40px; padding-top: 20px; width: 300px;">
       <button class="on-button-elem size-large bgcolor-white" type="info" plain @click="goToHomePage()"
         round>{{ $t('button.go_to_home') }}</button>
     </div>

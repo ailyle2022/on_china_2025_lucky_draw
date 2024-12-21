@@ -13,6 +13,7 @@
     "go_to_home": "返回首页",
     "go_to_draw": "进入抽奖页",
     "go_to_vote": "进入投票页",
+    "go_to_vote_result":"进入抽奖结果页",
     "submit": "提交"
   },
   "message": {

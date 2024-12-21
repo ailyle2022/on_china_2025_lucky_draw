@@ -10,6 +10,9 @@
       <button style="margin-top: 20px;" class="on-button-elem size-large bgcolor-block" type="primary" plain
         @click="handleVote()" round>{{
           $t('button.submit') }}</button>
+
+      <button style="margin-top: 20px;"  class="on-button-elem size-large bgcolor-white" type="info" plain @click="goToHomePage()" round>{{
+        $t('button.go_to_home') }}</button>
     </div>
   </div>
 </template>
@@ -29,6 +32,9 @@ export default {
     };
   },
   methods: {
+    goToHomePage() {
+      this.$router.push({ name: 'Home' });
+    },
     async handleVote() {
       if (this.value === "") {
         this.$message.error(this.$t('message.please_vote'));
