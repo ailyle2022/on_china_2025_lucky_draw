@@ -43,6 +43,12 @@ app.get("/voteResult", async (req: Request, res: Response) => {
       _count: {
         vote: true,
       },
+      where: {
+        vote: {
+          not: null
+        }
+      }
+  
     });
 
     const filteredVoteCounts = voteCounts.filter(group => group.vote !== "");
