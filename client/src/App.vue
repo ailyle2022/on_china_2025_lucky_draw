@@ -1,7 +1,7 @@
 <!-- src/App.vue -->
 <template>
   <div class="language-switcher">
-    <div class="left">{{ $t('login.title') }} 2025</div>
+    <div class="left">{{ $t('login.title') }}</div>
     <div class="right">
       <a href="#" @click.prevent="changeLanguage('zh-CN')">中文</a> |
       <a href="#" @click.prevent="changeLanguage('en-US')">EN</a>
@@ -22,7 +22,7 @@ export default {
       locale.value = lang;
     };
 
-    document.title = `On 2025 Annual Party Lottery`;
+    document.title = `On 2025 Annual Party`;
 
     return {
       changeLanguage
