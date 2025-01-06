@@ -5,7 +5,7 @@
 // Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
 
 generator client {
-  provider = "prisma-client-js"
+  provider      = "prisma-client-js"
   binaryTargets = ["native", "debian-openssl-3.0.x"]
 }
 
@@ -31,6 +31,7 @@ model User {
   token     String?
   prizeId   Int        @default(0)
   isAdmin   Boolean    @default(false)
+  voteable  Boolean    @default(false)
   Interest  Interest[]
   vote      String?
 }

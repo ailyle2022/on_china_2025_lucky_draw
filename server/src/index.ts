@@ -25,9 +25,7 @@ app.get("/nameList", async (req: Request, res: Response) => {
   try {
     const nameList = await prisma.user.findMany({
       where: {
-        token: {
-          not: null
-        }
+        voteable: true
       }
     });
     res.json(nameList);
