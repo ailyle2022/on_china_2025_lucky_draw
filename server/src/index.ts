@@ -228,9 +228,7 @@ app.post("/draw", async (req: Request, res: Response) => {
 
     // 获取所有可抽奖用户
     const userPool = await prisma.user.findMany({
-      where: {
-        AND: [{ token: { not: null } }, { prizeId: 0 }],
-      },
+      where: { prizeId: 0 }
     });
 
     // 提取用户的 name 属性并存入数组
